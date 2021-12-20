@@ -1,0 +1,31 @@
+// Override some bootstrap classes
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": (
+      property: color,
+      class: text-iris,
+      values:
+        map-merge(
+          $theme-colors,
+          (
+            "white": $white,
+            "primary": $primary,
+            "secondary": $secondary,
+            "reset": inherit,
+          )
+        ),
+    ),
+    "background-color": (
+      property: background-color,
+      class: bg-iris,
+      values:
+        map-merge(
+          $utilities-bg-colors,
+          (
+            "gray": $gray,
+          )
+        ),
+    ),
+  )
+);
