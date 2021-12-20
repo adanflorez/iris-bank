@@ -27,10 +27,9 @@ export class SelectComponent {
   /**
    * Emit option selected to parent
    *
-   * @param {Event} event
+   * @param {string} value
    */
-  onChange(event: Event) {
-    const value = (<HTMLSelectElement>event.target).value;
+  onChange(value: string) {
     this.changeValue.emit(value);
   }
 }

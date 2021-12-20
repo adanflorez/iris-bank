@@ -22,4 +22,10 @@ describe('SelectComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit when change', () => {
+    spyOn(component.changeValue, 'emit')
+    component.onChange("hola");
+    expect(component.changeValue.emit).toHaveBeenCalledWith("hola")
+  });
 });
