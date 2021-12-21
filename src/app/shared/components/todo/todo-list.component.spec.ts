@@ -21,10 +21,4 @@ describe('TodoListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it('should emit when change', () => {
-    spyOn(component.removeToDoItem, 'emit');
-    component.removeItem('1');
-    expect(component.removeToDoItem.emit).toHaveBeenCalledWith('1');
-  });
 });
