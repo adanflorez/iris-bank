@@ -4,9 +4,22 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 
 const routes: Routes = [
   {
-    path: "",
+    path: '',
     component: MainLayoutComponent,
-  }
+    children: [
+      {
+        path: '',
+        redirectTo: 'todo',
+        pathMatch: 'full',
+      },
+      {
+        path: 'todo',
+        loadChildren: () =>
+          import('./modules/todo/todo.module').then((m) => m.TodoModule),
+      },
+      { path: '**', redirectTo: 'todo', pathMatch: 'full' },
+    ],
+  },
 ];
 
 @NgModule({
