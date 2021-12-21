@@ -14,9 +14,6 @@ export class TodoItemComponent {
   @Input() text = '';
   @Input() checked = false;
 
-  //Outputs
-  @Output() removeToDoItem = new EventEmitter<string>();
-
   constructor(private store: Store<AppState>) {}
 
   /**
