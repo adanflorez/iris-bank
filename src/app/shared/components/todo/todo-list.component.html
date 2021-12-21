@@ -3,5 +3,6 @@
     [id]="todo.id"
     [text]="todo.text"
     [checked]="todo.checked"
+    (removeToDoItem)="removeItem($event)"
   ></app-todo-item>
 </div>

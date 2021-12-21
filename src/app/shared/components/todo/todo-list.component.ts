@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import ToDo from 'src/app/core/models/todo.interface';
 
 @Component({
@@ -6,11 +6,19 @@ import ToDo from 'src/app/core/models/todo.interface';
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.scss'],
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent {
+  // Inputs
   @Input() todoList: ToDo[] = [];
+  // Outputs
+  @Output() removeToDoItem = new EventEmitter<string>();
 
-  constructor() {}
-
-  ngOnInit(): void {
+  /**
+   * @description
+   * Emit the ToDo id to remove
+   *
+   */
+  removeItem(id: string): void {
+    console.log('todo list emit', id);
+    this.removeToDoItem.emit(id);
   }
 }
