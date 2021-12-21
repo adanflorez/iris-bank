@@ -18,7 +18,6 @@ export class TodoListComponent {
    *
    */
   removeItem(id: string): void {
-    console.log('todo list emit', id);
     this.removeToDoItem.emit(id);
   }
 }
