@@ -23,6 +23,7 @@ $utilities: map-merge(
         map-merge(
           $utilities-bg-colors,
           (
+            "white": $white,
             "primary": $primary,
             "gray": $gray,
           )
