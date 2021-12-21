@@ -44,10 +44,20 @@ export class PageComponent implements OnInit {
     ];
   }
 
+  /**
+   * Set current category
+   *
+   * @param {string} category
+   */
   chooseCategory(category: string) {
     this.category = category;
   }
 
+  /**
+   * receives the name of the ToDo to create an object of that type
+   *
+   * @param {string} item
+   */
   addToDoItem(item: string) {
     const uid = uuidv4();
     const todoItem: ToDo = {
