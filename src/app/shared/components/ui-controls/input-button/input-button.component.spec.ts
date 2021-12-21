@@ -23,9 +23,8 @@ describe('InputButtonComponent', () => {
   });
 
   it('should emit when change', () => {
-    spyOn(component.changeValue, 'emit');
-    component.onInput('hola');
-    expect(component.changeValue.emit).toHaveBeenCalledWith('hola');
+    component.onInput('programming');
+    expect(component.value).toEqual('programming');
   });
 
   it('should emit when button is clicked', () => {
@@ -42,16 +41,16 @@ describe('InputButtonComponent', () => {
   it('value is null then empty', () => {
     component.writeValue(null);
     expect(component.value).toEqual('');
-  })
+  });
 
   it('register on touched', () => {
-    const fn = () => {}
+    const fn = () => {};
     component.registerOnTouched(fn);
     expect(component.onTouch).toEqual(fn);
   });
 
   it('register on change', () => {
-    const fn = () => {}
+    const fn = () => {};
     component.registerOnChange(fn);
     expect(component.onChange).toEqual(fn);
   });
