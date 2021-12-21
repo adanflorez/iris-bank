@@ -6,18 +6,18 @@ import { PageComponent } from './page/page.component';
 import { SelectModule } from 'src/app/shared/components/ui-controls/select/select.module';
 import { InputButtonModule } from 'src/app/shared/components/ui-controls/input-button/input-button.module';
 import { TodoListModule } from 'src/app/shared/components/todo/todo-list.module';
-
+import { EffectsModule } from '@ngrx/effects';
+import { ToDoEffects } from './store/effects/todo.effects';
 
 @NgModule({
-  declarations: [
-    PageComponent
-  ],
+  declarations: [PageComponent],
   imports: [
     CommonModule,
     TodoRoutingModule,
     SelectModule,
     InputButtonModule,
-    TodoListModule
-  ]
+    TodoListModule,
+    EffectsModule.forFeature([ToDoEffects]),
+  ],
 })
-export class TodoModule { }
+export class TodoModule {}

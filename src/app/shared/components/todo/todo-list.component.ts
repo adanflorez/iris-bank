@@ -8,7 +8,7 @@ import ToDo from 'src/app/core/models/todo.interface';
 })
 export class TodoListComponent {
   // Inputs
-  @Input() todoList: ToDo[] = [];
+  @Input() todoList: ToDo[] | null = [];
   // Outputs
   @Output() removeToDoItem = new EventEmitter<string>();
 
