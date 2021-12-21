@@ -1,8 +1,8 @@
 <div class="container">
-  <div *ngIf="loading$ | async; else loader">loading...</div>
-  <ng-template #loader>
-    <div class="row">
-      <div class="col-md-6">
+  <div class="row">
+    <div class="col-md-6">
+      <div *ngIf="loading$ | async; else loader">loading...</div>
+      <ng-template #loader>
         <h1 class="text-iris-secondary mb-3">To do List</h1>
         <div class="mb-3">
           <app-select
@@ -20,11 +20,11 @@
 
         <h3 class="text-iris-secondary mt-5">All</h3>
         <hr class="bg-iris-gray border-gray border-1 border-dashed m-0" />
-        <app-todo
-          [todoList]="todoList$ | async"
-        ></app-todo>
-      </div>
-      <div class="col-md-6">2</div>
+        <app-todo [todoList]="todoList$ | async"></app-todo>
+      </ng-template>
     </div>
-  </ng-template>
+    <div class="col-md-6">
+
+    </div>
+  </div>
 </div>
