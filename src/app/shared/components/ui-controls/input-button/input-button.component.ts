@@ -28,6 +28,7 @@ export class InputButtonComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() size: Size;
   @Input() buttonText: string = 'button';
+  @Input() disabled: boolean = false;
   // Outputs
   @Output() changeValue = new EventEmitter<string>();
 
@@ -51,7 +52,6 @@ export class InputButtonComponent implements ControlValueAccessor {
    * @param {string} value
    */
   onInput(value: string) {
-    this.changeValue.emit(value);
     this.value = value;
     this.onTouch();
     this.onChange(this.value);
@@ -62,6 +62,7 @@ export class InputButtonComponent implements ControlValueAccessor {
    */
   buttonClick() {
     this.changeValue.emit(this.value);
+    this.value = '';
   }
 
   /**

@@ -1,0 +1,8 @@
+<div class="my-3" *ngFor="let todo of todoList">
+  <app-todo-item
+    [id]="todo.id"
+    [text]="todo.text"
+    [checked]="todo.checked"
+    (removeToDoItem)="removeItem($event)"
+  ></app-todo-item>
+</div>
