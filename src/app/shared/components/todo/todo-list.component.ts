@@ -9,4 +9,5 @@ import ToDo from 'src/app/core/models/todo.interface';
 export class TodoListComponent {
   // Inputs
   @Input() todoList: ToDo[] | null = [];
+  @Input() isFinished: boolean = false;
 }

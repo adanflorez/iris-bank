@@ -17,6 +17,7 @@ export class TodoItemComponent {
   @Input() id = '';
   @Input() text = '';
   @Input() checked = false;
+  @Input() isFinished: boolean = false;
 
   constructor(private store: Store<AppState>) {}
 
@@ -34,7 +35,6 @@ export class TodoItemComponent {
    * @param checked
    */
   addToFinishedList(checked: boolean) {
-    console.log("entra")
     if (checked) {
       const item: ToDo = { id: this.id, text: this.text, checked };
       this.store.dispatch(addFinishedList({ item }));

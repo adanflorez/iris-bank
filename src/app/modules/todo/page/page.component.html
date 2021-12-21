@@ -3,7 +3,7 @@
     <div class="col-md-6">
       <div *ngIf="loading$ | async; else loader">loading...</div>
       <ng-template #loader>
-        <h1 class="text-iris-secondary mb-3">To do List</h1>
+        <h1 class="text-iris-secondary my-3">To do List</h1>
         <div class="mb-3">
           <app-select
             [options]="options"
@@ -18,13 +18,17 @@
           (changeValue)="addToDoItem($event)"
         ></app-input-button>
 
-        <h3 class="text-iris-secondary mt-5">All</h3>
+        <h3 class="text-iris-secondary mt-5" *ngIf="(todoList$ | async)">All</h3>
         <hr class="bg-iris-gray border-gray border-1 border-dashed m-0" />
         <app-todo [todoList]="todoList$ | async"></app-todo>
       </ng-template>
     </div>
     <div class="col-md-6">
-      <app-todo [todoList]="finishedList$ | async"></app-todo>
+      <h1 class="text-iris-secondary my-3">Finished</h1>
+      <app-todo
+        [todoList]="finishedList$ | async"
+        [isFinished]="true"
+      ></app-todo>
     </div>
   </div>
 </div>

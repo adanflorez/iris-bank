@@ -3,6 +3,7 @@
     class="todo-item bg-iris-white w-100 d-flex align-items-center py-2 px-3"
   >
     <app-checkbox
+      *ngIf="!isFinished"
       ngClass="me-3"
       [(ngModel)]="checked"
       (changeValue)="addToFinishedList($event)"
@@ -11,7 +12,11 @@
       {{ text }}
     </label>
   </div>
-  <div class="icon-box d-flex align-items-stretch" (click)="removeItem()">
+  <div
+    *ngIf="!isFinished"
+    class="icon-box d-flex align-items-stretch"
+    (click)="removeItem()"
+  >
     <img src="assets/icons/x-lg.svg" alt="x-icon" class="m-4" />
   </div>
 </div>
