@@ -23,4 +23,12 @@ export class TodoService {
   removeItem(id: string) {
     return this.httpClient.delete(`${baseURL}/todoList/${id}`);
   }
+
+  getFInishedList(): Observable<any> {
+    return this.httpClient.get<ToDo[]>(`${baseURL}/finishedList`);
+  }
+
+  addItemToFinishedList(item: ToDo): Observable<any> {
+    return this.httpClient.post(`${baseURL}/finishedList`, item);
+  }
 }

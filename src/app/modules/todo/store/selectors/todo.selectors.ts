@@ -11,3 +11,8 @@ export const selectToDoLoading = createSelector(
   selectToDo,
   (state: ToDoState) => state.loading
 );
+
+export const selectFinishedList = createSelector(
+  selectToDo,
+  (state: ToDoState) => state.finishedList
+);
