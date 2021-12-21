@@ -1,0 +1,13 @@
+<select
+  class="form-select"
+  [ngClass]="classes"
+  (change)="onChange($any($event.target).value)"
+>
+  <option
+    *ngFor="let option of options"
+    [selected]="option.selected"
+    [value]="option.value"
+  >
+    {{ option.text }}
+  </option>
+</select>

@@ -1,0 +1,16 @@
+<div class="input-group">
+  <input
+    class="form-control"
+    [type]="type"
+    [value]="value"
+    [placeholder]="placeholder"
+    [ngClass]="classes"
+    (input)="onInput($any($event.target).value)"
+  />
+  <span
+    class="input-group-text fs-5"
+    [ngClass]="{ disabled: !value || disabled, allowed: value && !disabled }"
+    (click)="buttonClick()"
+    >{{ buttonText }}</span
+  >
+</div>

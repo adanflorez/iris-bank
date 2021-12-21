@@ -1,0 +1,37 @@
+// Override some bootstrap classes
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": (
+      property: color,
+      class: text-iris,
+      values:
+        map-merge(
+          $theme-colors,
+          (
+            "white": $white,
+            "primary": $primary,
+            "secondary": $secondary,
+            "reset": inherit,
+          )
+        ),
+    ),
+    "background-color": (
+      property: background-color,
+      class: bg-iris,
+      values:
+        map-merge(
+          $utilities-bg-colors,
+          (
+            "white": $white,
+            "primary": $primary,
+            "gray": $gray,
+          )
+        ),
+    ),
+  )
+);
+
+.border-dashed {
+  border-top: 1px dashed currentColor;
+}

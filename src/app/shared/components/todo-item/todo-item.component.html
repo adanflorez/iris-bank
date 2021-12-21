@@ -1,0 +1,13 @@
+<div class="d-flex">
+  <div
+    class="todo-item bg-iris-white w-100 d-flex align-items-center py-2 px-3"
+  >
+    <app-checkbox ngClass="me-3" [(ngModel)]="checked"></app-checkbox>
+    <label class="form-check-label ml-2" for="flexCheckDefault">
+      {{ text }}
+    </label>
+  </div>
+  <div class="icon-box d-flex align-items-stretch" (click)="removeItem()">
+    <img src="assets/icons/x-lg.svg" alt="x-icon" class="m-4" />
+  </div>
+</div>

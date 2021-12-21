@@ -1,0 +1,21 @@
+@import "../../../../../styles/themes/iris/variables";
+
+.form-control {
+  border-right: 0px;
+}
+span.input-group-text {
+  cursor: pointer;
+  background-color: #fff;
+  border-left: 0px;
+  color: $secondary;
+  transition: ease 0.3s;
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.allowed {
+    background-color: $primary;
+    color: $gray;
+  }
+}
