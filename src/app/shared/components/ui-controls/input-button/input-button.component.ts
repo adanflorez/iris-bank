@@ -62,6 +62,7 @@ export class InputButtonComponent implements ControlValueAccessor {
    */
   buttonClick() {
     this.changeValue.emit(this.value);
+    this.value = '';
   }
 
   /**
