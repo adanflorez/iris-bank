@@ -70,4 +70,39 @@ describe('TodoService', () => {
       },
     });
   });
+
+  it('Get finished list from fake db', (done: DoneFn) => {
+    const item: ToDo = {
+      id: '1',
+      text: 'Prueba',
+      checked: true,
+    };
+
+    const result = [item];
+    httpClientSpy.get.and.returnValue(of(result));
+
+    service.getFInishedList().subscribe({
+      next: (res) => {
+        expect(res).toEqual(result);
+        done();
+      },
+    });
+  });
+
+  it('Add item to finished list in fake db', (done: DoneFn) => {
+    const item: ToDo = {
+      id: '1',
+      text: 'Prueba',
+      checked: true,
+    };
+
+    httpClientSpy.post.and.returnValue(of(item));
+
+    service.addItemToFinishedList(item).subscribe({
+      next: (res) => {
+        expect(res).toEqual(item);
+        done();
+      },
+    });
+  });
 });
