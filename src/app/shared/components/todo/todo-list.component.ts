@@ -3,10 +3,10 @@ import ToDo from 'src/app/core/models/todo.interface';
 
 @Component({
   selector: 'app-todo',
-  templateUrl: './todo.component.html',
-  styleUrls: ['./todo.component.scss'],
+  templateUrl: './todo-list.component.html',
+  styleUrls: ['./todo-list.component.scss'],
 })
-export class TodoComponent implements OnInit {
+export class TodoListComponent implements OnInit {
   todoList: ToDo[] = [];
 
   constructor() {}
