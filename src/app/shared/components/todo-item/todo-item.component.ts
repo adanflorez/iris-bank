@@ -20,6 +20,6 @@ export class TodoItemComponent {
    *
    */
   removeItem(): void {
-    this.removeToDoItem.emit(this.id)
+    this.removeToDoItem.emit(this.id);
   }
 }
