@@ -41,4 +41,8 @@ export class PageComponent implements OnInit {
       checked: false,
     });
   }
+
+  removeItem(id: string) {
+    this.todoList = this.todoList.filter((item) => item.id !== id);
+  }
 }

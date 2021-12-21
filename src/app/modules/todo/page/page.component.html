@@ -18,7 +18,10 @@
 
       <h3 class="text-iris-secondary mt-5">All</h3>
       <hr class="bg-iris-gray border-gray border-1 border-dashed m-0" />
-      <app-todo [todoList]="todoList"></app-todo>
+      <app-todo
+        [todoList]="todoList"
+        (removeToDoItem)="removeItem($event)"
+      ></app-todo>
     </div>
     <div class="col-md-6">2</div>
   </div>
