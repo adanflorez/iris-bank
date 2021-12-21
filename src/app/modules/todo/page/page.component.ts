@@ -57,8 +57,4 @@ export class PageComponent implements OnInit {
     };
     this.store.dispatch(addTodoItem({ item: todoItem }));
   }
-
-  removeItem(id: string) {
-    this.todoList = this.todoList.filter((item) => item.id !== id);
-  }
 }

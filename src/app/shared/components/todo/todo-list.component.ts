@@ -9,15 +9,4 @@ import ToDo from 'src/app/core/models/todo.interface';
 export class TodoListComponent {
   // Inputs
   @Input() todoList: ToDo[] | null = [];
-  // Outputs
-  @Output() removeToDoItem = new EventEmitter<string>();
-
-  /**
-   * @description
-   * Emit the ToDo id to remove
-   *
-   */
-  removeItem(id: string): void {
-    this.removeToDoItem.emit(id);
-  }
 }
