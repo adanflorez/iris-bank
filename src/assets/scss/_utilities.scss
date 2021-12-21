@@ -31,3 +31,7 @@ $utilities: map-merge(
     ),
   )
 );
+
+.border-dashed {
+  border-top: 1px dashed currentColor;
+}
