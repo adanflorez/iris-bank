@@ -10,7 +10,11 @@ span.input-group-text {
   color: $secondary;
   transition: ease 0.3s;
 
-  &:hover {
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.allowed {
     background-color: $primary;
     color: $gray;
   }

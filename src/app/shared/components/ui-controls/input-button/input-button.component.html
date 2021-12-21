@@ -7,7 +7,10 @@
     [ngClass]="classes"
     (input)="onInput($any($event.target).value)"
   />
-  <span class="input-group-text fs-5" (click)="buttonClick()">{{
-    buttonText
-  }}</span>
+  <span
+    class="input-group-text fs-5"
+    [ngClass]="{ disabled: !value || disabled, allowed: value && !disabled }"
+    (click)="buttonClick()"
+    >{{ buttonText }}</span
+  >
 </div>
