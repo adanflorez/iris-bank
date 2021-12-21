@@ -19,4 +19,8 @@ export class TodoService {
   addItem(item: ToDo): Observable<any> {
     return this.httpClient.post(`${baseURL}/todoList`, item);
   }
+
+  removeItem(id: string) {
+    return this.httpClient.delete(`${baseURL}/todoList/${id}`);
+  }
 }

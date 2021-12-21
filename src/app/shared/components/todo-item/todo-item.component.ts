@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { removeTodoItem } from 'src/app/modules/todo/store/actions/todo.actions';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-todo-item',
@@ -14,12 +17,14 @@ export class TodoItemComponent {
   //Outputs
   @Output() removeToDoItem = new EventEmitter<string>();
 
+  constructor(private store: Store<AppState>) {}
+
   /**
    * @description
-   * Emit the ToDo id to remove
+   * Remove item from todo
    *
    */
   removeItem(): void {
-    this.removeToDoItem.emit(this.id);
+    this.store.dispatch(removeTodoItem({ id: this.id }));
   }
 }
