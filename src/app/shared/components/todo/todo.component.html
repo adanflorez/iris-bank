@@ -1,0 +1,11 @@
+<div class="container my-4">
+  <div class="row justify-content-center" *ngFor="let todo of todoList">
+    <div class="col-8 mb-2">
+      <app-todo-item
+        [id]="todo.id"
+        [text]="todo.text"
+        [checked]="todo.checked"
+      ></app-todo-item>
+    </div>
+  </div>
+</div>
