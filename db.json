@@ -1,0 +1,19 @@
+{
+  "todoList": [
+    {
+      "id": "1",
+      "text": "Primera tarea",
+      "checked": false
+    },
+    {
+      "id": "2",
+      "text": "Segunda tarea",
+      "checked": false
+    },
+    {
+      "id": "3",
+      "text": "Tercera tarea",
+      "checked": false
+    }
+  ]
+}

@@ -8,6 +8,8 @@ import { InputButtonModule } from 'src/app/shared/components/ui-controls/input-b
 import { TodoListModule } from 'src/app/shared/components/todo/todo-list.module';
 import { EffectsModule } from '@ngrx/effects';
 import { ToDoEffects } from './store/effects/todo.effects';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoService } from './services/todo.service';
 
 @NgModule({
   declarations: [PageComponent],
@@ -18,6 +20,8 @@ import { ToDoEffects } from './store/effects/todo.effects';
     InputButtonModule,
     TodoListModule,
     EffectsModule.forFeature([ToDoEffects]),
+    HttpClientModule,
   ],
+  providers: [TodoService],
 })
 export class TodoModule {}

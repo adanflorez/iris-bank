@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import CustomSelect from 'src/app/core/models/custom-select';
 import ToDo from 'src/app/core/models/todo.interface';
 import { v4 as uuidv4 } from 'uuid';
+import { Observable } from 'rxjs';
+// Store
+import { select, Store } from '@ngrx/store';
+import { loadToDoList } from '../store/actions/todo.actions';
+import {
+  selectTodoList,
+  selectToDoLoading,
+} from '../store/selectors/todo.selectors';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-page',
@@ -12,10 +21,18 @@ export class PageComponent implements OnInit {
   options: CustomSelect[] = [];
   category: string = '';
   todoList: ToDo[] = [];
+  loading$: Observable<boolean> = new Observable();
+  todoList$: Observable<ToDo[]> = new Observable();
 
-  constructor() {}
+  constructor(
+    private store: Store<AppState>,
+  ) {}
 
   ngOnInit(): void {
+    this.loading$ = this.store.pipe(select(selectToDoLoading));
+    this.todoList$ = this.store.pipe(select(selectTodoList));
+    this.store.dispatch(loadToDoList());
+
     this.options = [
       {
         text: '-- Select category --',
