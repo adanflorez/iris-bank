@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TodoItemComponent } from './todo-item.component';
-import { CheckboxModule } from '../checkbox/checkbox.module';
+import { CheckboxModule } from '../ui-controls/checkbox/checkbox.module';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
