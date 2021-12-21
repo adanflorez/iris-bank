@@ -1,0 +1,21 @@
+{
+  "todoList": [
+    {
+      "id": "505611b4-ad86-43f7-8f32-ff05b2ce3362",
+      "text": "Una tarea pendiente",
+      "checked": false
+    }
+  ],
+  "finishedList": [
+    {
+      "id": "1",
+      "text": "Primera tarea",
+      "checked": true
+    },
+    {
+      "id": "0d5f9e63-8cc2-4831-a12d-4edbb6fc56ea",
+      "text": "Nueva tarea",
+      "checked": true
+    }
+  ]
+}

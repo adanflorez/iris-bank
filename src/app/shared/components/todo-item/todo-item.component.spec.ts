@@ -1,16 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TodoItemComponent } from './todo-item.component';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 
 describe('TodoItemComponent', () => {
   let component: TodoItemComponent;
   let fixture: ComponentFixture<TodoItemComponent>;
 
+  let store: MockStore;
+  const initialState = { loading: false };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TodoItemComponent ]
-    })
-    .compileComponents();
+      declarations: [TodoItemComponent],
+      providers: [provideMockStore({ initialState })],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,11 +25,5 @@ describe('TodoItemComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it('should emit when button is clicked', () => {
-    spyOn(component.removeToDoItem, 'emit');
-    component.removeItem();
-    expect(component.removeToDoItem.emit).toHaveBeenCalledWith('');
   });
 });

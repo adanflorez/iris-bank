@@ -1,14 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PageComponent } from './page.component';
-import * as uuidWrapper from 'uuid';
+import { provideMockStore, MockStore } from '@ngrx/store/testing';
 
 describe('PageComponent', () => {
   let component: PageComponent;
   let fixture: ComponentFixture<PageComponent>;
 
+  let store: MockStore;
+  const initialState = { loading: false };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PageComponent],
+      providers: [provideMockStore({ initialState })],
     }).compileComponents();
   });
 
@@ -25,29 +29,6 @@ describe('PageComponent', () => {
   it('this.category should be equal to category param', () => {
     component.chooseCategory('all');
     expect(component.category).toEqual('all');
-  });
-
-  it('should remove item', () => {
-    component.todoList = [
-      {
-        id: '1',
-        text: 'test 1',
-        checked: false,
-      },
-      {
-        id: '2',
-        text: 'test 2',
-        checked: false,
-      },
-    ];
-    component.removeItem('2');
-    expect(component.todoList).toEqual([
-      {
-        id: '1',
-        text: 'test 1',
-        checked: false,
-      },
-    ]);
   });
 
   /**
