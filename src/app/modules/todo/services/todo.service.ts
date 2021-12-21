@@ -15,4 +15,8 @@ export class TodoService {
   getDataAPI(): Observable<any> {
     return this.httpClient.get<ToDo[]>(`${baseURL}/todoList`);
   }
+
+  addItem(item: ToDo): Observable<any> {
+    return this.httpClient.post(`${baseURL}/todoList`, item);
+  }
 }

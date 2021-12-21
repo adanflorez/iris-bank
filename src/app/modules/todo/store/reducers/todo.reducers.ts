@@ -1,6 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import ToDo from 'src/app/core/models/todo.interface';
-import { loadToDoList, loadToDoListSuccess } from '../actions/todo.actions';
+import {
+  addTodoItem,
+  loadToDoList,
+  loadToDoListSuccess,
+} from '../actions/todo.actions';
 
 export interface ToDoState {
   loading: boolean;
@@ -19,5 +23,8 @@ export const todoReducer = createReducer(
   }),
   on(loadToDoListSuccess, (state, { todoList }) => {
     return { ...state, loading: false, todoList };
+  }),
+  on(addTodoItem, (state, { item }) => {
+    return { ...state, todoList: [...state.todoList, item] };
   })
 );

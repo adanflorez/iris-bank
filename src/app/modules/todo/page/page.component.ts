@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { Observable } from 'rxjs';
 // Store
 import { select, Store } from '@ngrx/store';
-import { loadToDoList } from '../store/actions/todo.actions';
+import { addTodoItem, loadToDoList } from '../store/actions/todo.actions';
 import {
   selectTodoList,
   selectToDoLoading,
@@ -24,9 +24,7 @@ export class PageComponent implements OnInit {
   loading$: Observable<boolean> = new Observable();
   todoList$: Observable<ToDo[]> = new Observable();
 
-  constructor(
-    private store: Store<AppState>,
-  ) {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.loading$ = this.store.pipe(select(selectToDoLoading));
@@ -52,11 +50,12 @@ export class PageComponent implements OnInit {
 
   addToDoItem(item: string) {
     const uid = uuidv4();
-    this.todoList.push({
+    const todoItem: ToDo = {
       id: uid,
       text: item,
       checked: false,
-    });
+    };
+    this.store.dispatch(addTodoItem({ item: todoItem }));
   }
 
   removeItem(id: string) {
