@@ -5,8 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { Observable } from 'rxjs';
 // Store
 import { select, Store } from '@ngrx/store';
-import { addTodoItem, loadToDoList } from '../store/actions/todo.actions';
 import {
+  addTodoItem,
+  loadFinishedList,
+  loadToDoList,
+} from '../store/actions/todo.actions';
+import {
+  selectFinishedList,
   selectTodoList,
   selectToDoLoading,
 } from '../store/selectors/todo.selectors';
@@ -23,13 +28,16 @@ export class PageComponent implements OnInit {
   todoList: ToDo[] = [];
   loading$: Observable<boolean> = new Observable();
   todoList$: Observable<ToDo[]> = new Observable();
+  finishedList$: Observable<ToDo[]> = new Observable();
 
   constructor(private store: Store<AppState>) {}
 
   ngOnInit(): void {
     this.loading$ = this.store.pipe(select(selectToDoLoading));
     this.todoList$ = this.store.pipe(select(selectTodoList));
+    this.finishedList$ = this.store.pipe(select(selectFinishedList));
     this.store.dispatch(loadToDoList());
+    this.store.dispatch(loadFinishedList());
 
     this.options = [
       {

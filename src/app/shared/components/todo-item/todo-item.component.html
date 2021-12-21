@@ -2,7 +2,11 @@
   <div
     class="todo-item bg-iris-white w-100 d-flex align-items-center py-2 px-3"
   >
-    <app-checkbox ngClass="me-3" [(ngModel)]="checked"></app-checkbox>
+    <app-checkbox
+      ngClass="me-3"
+      [(ngModel)]="checked"
+      (changeValue)="addToFinishedList($event)"
+    ></app-checkbox>
     <label class="form-check-label ml-2" for="flexCheckDefault">
       {{ text }}
     </label>
